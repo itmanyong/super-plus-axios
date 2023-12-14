@@ -1,7 +1,7 @@
 {
   "name": "super-plus-axios",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "packageManager": "pnpm@8.12.0",
   "description": "基于axios封装的更贴合上层业务的扩展",
   "author": "Itmanyong <itmanyong@gmail.com>",
