@@ -1,23 +1,23 @@
 {
-  "name": "super-axios",
+  "name": "super-puls-axios",
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@8.12.0",
   "description": "基于axios封装的更贴合上层业务的扩展",
   "author": "Itmanyong <itmanyong@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/itmanyong/super-axios#readme",
+  "homepage": "https://github.com/itmanyong/super-puls-axios#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itmanyong/super-axios#readme.git"
+    "url": "git+https://github.com/itmanyong/super-puls-axios#readme.git"
   },
   "bugs": {
-    "url": "https://github.com/itmanyong/super-axios#readme/issues"
+    "url": "https://github.com/itmanyong/super-puls-axios#readme/issues"
   },
   "keywords": [
     "itmanyong",
     "axios",
-    "super-axios"
+    "super-puls-axios"
   ],
   "sideEffects": false,
   "main": "dist/index.cjs",
