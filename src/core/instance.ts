@@ -272,36 +272,34 @@ export function createSuperAxios(config: AxiosRequestConfig = {}): SuperInstance
     deleteHeader,
     useRequestInterceptor,
     useResponseInterceptor,
-    ...FetchMethod.map(method => {
-      return {
-        [method]: createFetchRunner(
-          instance,
-          method,
-          RESPONSE_TYPE[(config?.responseType || 'JSON').toUpperCase() as keyof typeof RESPONSE_TYPE]
-        ),
-        [`${method}Json`]: createFetchRunner(instance, method, RESPONSE_TYPE.JSON),
-        [`${method}Text`]: createFetchRunner(instance, method, RESPONSE_TYPE.TEXT),
-        [`${method}Blob`]: createFetchRunner(instance, method, RESPONSE_TYPE.BLOB),
-        [`${method}Stream`]: createFetchRunner(instance, method, RESPONSE_TYPE.STREAM),
-        [`${method}Buffer`]: createFetchRunner(instance, method, RESPONSE_TYPE.BUFFER),
-        [`${method}Document`]: createFetchRunner(instance, method, RESPONSE_TYPE.DOCUMENT)
-      }
-    }),
-    ...ModifyMethod.map(method => {
-      return {
-        [method]: createModifyRunner(
-          instance,
-          method,
-          CONTENT_TYPE[(config?.headers?.['Content-Type'] || 'JSON').toUpperCase() as keyof typeof CONTENT_TYPE]
-        ),
-        [`${method}Json`]: createModifyRunner(instance, method, CONTENT_TYPE.JSON),
-        [`${method}Text`]: createModifyRunner(instance, method, CONTENT_TYPE.TEXT),
-        [`${method}Html`]: createModifyRunner(instance, method, CONTENT_TYPE.HTML),
-        [`${method}Form`]: createModifyRunner(instance, method, CONTENT_TYPE.FORM),
-        [`${method}FormData`]: createModifyRunner(instance, method, CONTENT_TYPE.FORM_DATA),
-        [`${method}Stream`]: createModifyRunner(instance, method, CONTENT_TYPE.FORM_DATA)
-      }
-    }),
+    ...FetchMethod.reduce((acc, method) => {
+      acc[method] = createFetchRunner(
+        instance,
+        method,
+        RESPONSE_TYPE[(config?.responseType || 'JSON').toUpperCase() as keyof typeof RESPONSE_TYPE]
+      )
+      acc[`${method}Json`] = createFetchRunner(instance, method, RESPONSE_TYPE.JSON)
+      acc[`${method}Text`] = createFetchRunner(instance, method, RESPONSE_TYPE.TEXT)
+      acc[`${method}Blob`] = createFetchRunner(instance, method, RESPONSE_TYPE.BLOB)
+      acc[`${method}Stream`] = createFetchRunner(instance, method, RESPONSE_TYPE.STREAM)
+      acc[`${method}Buffer`] = createFetchRunner(instance, method, RESPONSE_TYPE.BUFFER)
+      acc[`${method}Document`] = createFetchRunner(instance, method, RESPONSE_TYPE.DOCUMENT)
+      return acc
+    }, {} as Record<string, SuperFetchRunner>),
+    ...ModifyMethod.reduce((acc, method) => {
+      acc[method] = createModifyRunner(
+        instance,
+        method,
+        CONTENT_TYPE[(config?.headers?.['Content-Type'] || 'JSON').toUpperCase() as keyof typeof CONTENT_TYPE]
+      )
+      acc[`${method}Json`] = createModifyRunner(instance, method, CONTENT_TYPE.JSON)
+      acc[`${method}Text`] = createModifyRunner(instance, method, CONTENT_TYPE.TEXT)
+      acc[`${method}Html`] = createModifyRunner(instance, method, CONTENT_TYPE.HTML)
+      acc[`${method}Form`] = createModifyRunner(instance, method, CONTENT_TYPE.FORM)
+      acc[`${method}FormData`] = createModifyRunner(instance, method, CONTENT_TYPE.FORM_DATA)
+      acc[`${method}Stream`] = createModifyRunner(instance, method, CONTENT_TYPE.FORM_DATA)
+      return acc
+    }, {} as Record<string, SuperModifyRunner>),
     download,
     getUrl
   }
