@@ -151,7 +151,10 @@ function handleParams(options: Record<string, any>, params?: SuperParams) {
     options.url += `?${qs.stringify(query)}`
   }
   if (param) {
-    options.url = options.url.replace(/:(\w+)|{(\w+)}/g, (_: string, key: string) => param[key] || key)
+    options.url = options.url.replace(/:([\w]+)|{([\w]+)}/g, (_: string, colonSymbol: string, braceSymbol: string) => {
+      const matchField = colonSymbol || braceSymbol
+      return param[matchField] !== undefined ? param[matchField] : matchField
+    })
   }
   if (ModifyMethod.includes(options.method) && data) {
     switch (options.headers['Content-Type']) {
