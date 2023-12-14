@@ -1,17 +1,17 @@
-## super-puls-axios
+## super-plus-axios
 
-* [NPM](https://www.npmjs.com/package/super-puls-axios)
-* [GITHUB](https://github.com/itmanyong/super-puls-axios)
+* [NPM](https://www.npmjs.com/package/super-plus-axios)
+* [GITHUB](https://github.com/itmanyong/super-plus-axios)
 
 ### 安装
 
 ```bash
 # pnpm 推荐
-pnpm add super-puls-axios -D
+pnpm add super-plus-axios -D
 # npm
-npm i super-puls-axios -D
+npm i super-plus-axios -D
 # yarn
-yarn add super-puls-axios -D
+yarn add super-plus-axios -D
 ```
 
 ### 使用
