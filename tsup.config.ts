@@ -15,7 +15,7 @@ export default defineConfig(() => {
     sourcemap: false,
     minify: false,
     shims: false,
-    legacyOutput: true
+    legacyOutput: false
   }
 })
 
