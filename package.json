@@ -1,0 +1,57 @@
+{
+  "name": "super-axios",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@8.12.0",
+  "description": "基于axios封装的更贴合上层业务的扩展",
+  "author": "Itmanyong <itmanyong@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/itmanyong/super-axios#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itmanyong/super-axios#readme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itmanyong/super-axios#readme/issues"
+  },
+  "keywords": [
+    "itmanyong",
+    "axios",
+    "super-axios"
+  ],
+  "sideEffects": false,
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.11"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "fast-json-stable-stringify": "^2.1.0",
+    "minimatch": "^9.0.3",
+    "qs": "^6.11.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "2.4.3",
+    "@types/minimatch": "^5.1.2",
+    "@types/qs": "^6.9.10",
+    "tsup": "7.2.0",
+    "typescript": "^5.3.3",
+    "vue": "^3.3.11"
+  }
+}

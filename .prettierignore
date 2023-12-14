@@ -1,0 +1,6 @@
+package.json
+*.md
+.github/**
+.history/**
+
+pnpm-lock.yaml

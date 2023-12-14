@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "downlevelIteration": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "target": "ES2017",
+    "allowJs": true,
+    "lib": ["esnext", "dom"],
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/client/**",
+    "**/playground/**",
+    "**/examples/**",
+    "**/interactive/**",
+    "**/test/dts/**"
+  ]
+}
